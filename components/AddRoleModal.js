@@ -24,6 +24,7 @@ import {
   useToast,
   useDisclosure
 } from '@chakra-ui/react'
+import { url } from '@/config'
 const AddRoleModal = ({ isOpen, setOpenAddRoleModal, token, setRoles, roles }) => {
   const { onOpen, onClose } = useDisclosure()
   const [description, setDescription] = useState('')
