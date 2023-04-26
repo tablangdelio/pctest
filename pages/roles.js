@@ -52,14 +52,11 @@ const roles = ({ data, token }) => {
 
   async function handleRemoveItem(roleId) {
     try {
-      const response = await axios.delete(
-        `${url}/tablangdelio/public/index.php/api/role/${roleId}/delete`,
-        {
-          headers: {
-            Authorization: `Bearer ${_token?.token}`
-          }
+      const response = await axios.delete(`${url}/api/role/${roleId}/delete`, {
+        headers: {
+          Authorization: `Bearer ${_token?.token}`
         }
-      )
+      })
 
       if (response.status === 200) {
         toast({
@@ -173,9 +170,7 @@ const roles = ({ data, token }) => {
 export default roles
 
 export async function getServerSideProps(context) {
-  const data = await fetch(`${url}/tablangdelio/public/index.php/api/roles`).then(response =>
-    response.json()
-  )
+  const data = await fetch(`${url}/api/roles`).then(response => response.json())
 
   // Parse the cookies from the incoming request
   const cookies = parse(context.req.headers.cookie || '')

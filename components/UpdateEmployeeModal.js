@@ -47,7 +47,7 @@ const UpdateEmployeeModal = ({
 
     try {
       const response = await axios.put(
-        `${url}/tablangdelio/public/index.php/api/employee/${openUpdateModal?.data?.employee_id}/update`,
+        `${url}/api/employee/${openUpdateModal?.data?.employee_id}/update`,
         {
           firstname: e.target.elements.firstname.value,
           lastname: e.target.elements.lastname.value,
@@ -218,7 +218,7 @@ const UpdateEmployeeModal = ({
                     placeholder="email"
                     isInvalid={error?.hasOwnProperty('email') ? true : false}
                     name="email"
-                    value={form?.eamil ?? openUpdateModal?.data?.email}
+                    value={form?.email ?? openUpdateModal?.data?.email}
                     isDisabled={openUpdateModal?.data?.employee_id == 1 ? true : false}
                   />
                 </FormControl>

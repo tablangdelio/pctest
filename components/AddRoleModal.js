@@ -33,7 +33,7 @@ const AddRoleModal = ({ isOpen, setOpenAddRoleModal, token, setRoles, roles }) =
   async function handleSubmit() {
     try {
       const response = await axios.post(
-        `${url}/tablangdelio/public/index.php/api/role/create`,
+        `${url}/api/role/create`,
         {
           description: description
         },

@@ -34,7 +34,7 @@ const login = () => {
   async function handleLogin(e) {
     e.preventDefault()
     try {
-      const response = await axios.post(`${url}/tablangdelio/public/index.php/api/login`, {
+      const response = await axios.post(`${url}/api/login`, {
         email: e.target.elements.email.value,
         password: e.target.elements.password.value
       })

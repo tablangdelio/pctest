@@ -40,7 +40,7 @@ const UpdateRoleModal = ({ openUpdateModal, setOpenUpdateModal, token, roles, se
     e.preventDefault()
     try {
       await axios.put(
-        `${url}/tablangdelio/public/index.php/api/role/${openUpdateModal?.data?.access_level_id}/update`,
+        `${url}/api/role/${openUpdateModal?.data?.access_level_id}/update`,
         {
           description: e.target.elements.description.value
         },

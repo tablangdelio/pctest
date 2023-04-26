@@ -70,14 +70,11 @@ export default function Home({ employees, roles, token }) {
 
   async function handleRemoveItem() {
     try {
-      const response = await axios.delete(
-        `${url}/tablangdelio/public/index.php/api/employee/${employeeId}/delete`,
-        {
-          headers: {
-            Authorization: `Bearer ${_token?.token}`
-          }
+      const response = await axios.delete(`${url}/api/employee/${employeeId}/delete`, {
+        headers: {
+          Authorization: `Bearer ${_token?.token}`
         }
-      )
+      })
 
       if (response.status === 200) {
         toast({
@@ -108,7 +105,7 @@ export default function Home({ employees, roles, token }) {
   }
 
   return (
-    <Container maxW="8xl" marginTop={12} p={8}>
+    <Container maxW="9xl" marginTop={12} p={8}>
       <Flex>
         <Spacer />
         <Button colorScheme="teal" size="sm" onClick={handleLogout} variant="outline">
@@ -239,13 +236,9 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const employees = await axios
-    .get(`${url}/tablangdelio/public/index.php/api/employees`)
-    .then(response => response.data)
+  const employees = await axios.get(`${url}/api/employees`).then(response => response.data)
 
-  const roles = await axios
-    .get(`${url}/tablangdelio/public/index.php/api/roles`)
-    .then(response => response.data)
+  const roles = await axios.get(`${url}/api/roles`).then(response => response.data)
 
   return {
     props: {

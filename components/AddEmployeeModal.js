@@ -37,7 +37,7 @@ const AddEmployeeModal = ({ isOpen, onClose, roles, token, setEmployees }) => {
   async function handleAddItem() {
     try {
       const response = await axios.post(
-        `${url}/tablangdelio/public/index.php/api/employee/create`,
+        `${url}/api/employee/create`,
         {
           firstname: form?.firstname,
           lastname: form?.lastname,
